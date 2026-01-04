@@ -91,7 +91,7 @@ UM-branding/
 **Confident.** Direct. Technical. Community-focused.
 
 ### Colors
-- **Primary:** Black `#000000`, White `#FFFFFF`
+- **Primary:** Off-Black `#1A1A1A`, Off-White `#F8F8F8`
 - **Accents:** Turquoise `#4EF9BD`, Red `#EE1701`, Purple `#B307EB`, Blue `#3198F1`
 
 ### Typography
@@ -120,7 +120,7 @@ UM-branding/
 ## 📝 Usage Guidelines
 
 ### For Partners & Collaborators
-Use official brand assets for sponsorships, events, and collaborations. Maintain our voice—direct, technical, confident. Follow visual guidelines for co-branded materials. Emphasize community over individual achievements.
+Use official brand assets for sponsorships, events, and collaborations. Maintain our voice: direct, technical, confident. Follow visual guidelines for co-branded materials. Emphasize community over individual achievements.
 
 ### For Members
 Use the logo on your personal site, LinkedIn, portfolios. Tag and credit Unicorn Mafia when sharing wins. Maintain standards that reflect the community's quality. Build in public and share what you're learning.
@@ -146,7 +146,8 @@ Use the logo on your personal site, LinkedIn, portfolios. Tag and credit Unicorn
 Edit CSS variables in `src/app.css`:
 ```css
 :root {
-  --um-black: #000000;
+  --um-black: #1A1A1A;
+  --um-white: #F8F8F8;
   --um-turquoise: #4EF9BD;
   /* etc. */
 }

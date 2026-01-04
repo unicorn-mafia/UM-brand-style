@@ -2,6 +2,7 @@
   import { animate, inView } from 'motion';
   import { onMount } from 'svelte';
   import { convertSvgToImage, downloadFile } from '../utils.js';
+  import { theme } from '../stores.js';
   
   let selectedSize = $state(1024);
   let downloading = $state(false);

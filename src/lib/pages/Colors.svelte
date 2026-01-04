@@ -4,8 +4,8 @@
   import { copyToClipboard } from '../utils.js';
   
   const primaryColors = [
-    { name: 'Black', hex: '#1A1A1A', rgb: 'rgb(26, 26, 26)', var: '--um-black' },
-    { name: 'White', hex: '#F8F8F8', rgb: 'rgb(248, 248, 248)', var: '--um-white' }
+    { name: 'Off-Black', hex: '#1A1A1A', rgb: 'rgb(26, 26, 26)', var: '--um-black' },
+    { name: 'Off-White', hex: '#F8F8F8', rgb: 'rgb(248, 248, 248)', var: '--um-white' }
   ];
   
   const accentColors = [
@@ -49,7 +49,7 @@
     <!-- Primary Colors -->
     <section class="section">
       <h2>Primary Foundation</h2>
-      <p class="mono desc">black and white form the core</p>
+      <p class="mono desc">off-black and off-white form the core</p>
       
       <div class="color-grid">
         {#each primaryColors as color}
@@ -106,7 +106,7 @@
         <div class="usage-card">
           <div class="usage-icon">🎨</div>
           <h3>Foundation</h3>
-          <p class="mono">Black + White → 90% of design</p>
+          <p class="mono">Off-Black + Off-White → 90% of design</p>
         </div>
         <div class="usage-card">
           <div class="usage-icon">✨</div>
@@ -144,12 +144,12 @@
         <!-- Foundation -->
         <div class="pair">
           <div class="pair-demo" style="background: #F8F8F8; color: #1A1A1A; border: 1px solid #DADADA">
-            <span class="mono">Black on White</span>
+            <span class="mono">Off-Black on Off-White</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #1A1A1A; color: #F8F8F8">
-            <span class="mono">White on Black</span>
+            <span class="mono">Off-White on Off-Black</span>
           </div>
         </div>
         <div class="pair empty"></div>
@@ -157,68 +157,68 @@
         <!-- Turquoise -->
         <div class="pair">
           <div class="pair-demo" style="background: #F8F8F8; color: #4EF9BD; border: 1px solid #DADADA">
-            <span class="mono">Turquoise on White</span>
+            <span class="mono">Turquoise on Off-White</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #1A1A1A; color: #4EF9BD">
-            <span class="mono">Turquoise on Black</span>
+            <span class="mono">Turquoise on Off-Black</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #4EF9BD; color: #1A1A1A">
-            <span class="mono">Black on Turquoise</span>
+            <span class="mono">Off-Black on Turquoise</span>
           </div>
         </div>
         
         <!-- Red -->
         <div class="pair">
           <div class="pair-demo" style="background: #F8F8F8; color: #EE1701; border: 1px solid #DADADA">
-            <span class="mono">Red on White</span>
+            <span class="mono">Red on Off-White</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #1A1A1A; color: #EE1701">
-            <span class="mono">Red on Black</span>
+            <span class="mono">Red on Off-Black</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #EE1701; color: #F8F8F8">
-            <span class="mono">White on Red</span>
+            <span class="mono">Off-White on Red</span>
           </div>
         </div>
         
         <!-- Purple -->
         <div class="pair">
           <div class="pair-demo" style="background: #F8F8F8; color: #B307EB; border: 1px solid #DADADA">
-            <span class="mono">Purple on White</span>
+            <span class="mono">Purple on Off-White</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #1A1A1A; color: #B307EB">
-            <span class="mono">Purple on Black</span>
+            <span class="mono">Purple on Off-Black</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #B307EB; color: #F8F8F8">
-            <span class="mono">White on Purple</span>
+            <span class="mono">Off-White on Purple</span>
           </div>
         </div>
         
         <!-- Blue -->
         <div class="pair">
           <div class="pair-demo" style="background: #F8F8F8; color: #3198F1; border: 1px solid #DADADA">
-            <span class="mono">Blue on White</span>
+            <span class="mono">Blue on Off-White</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #1A1A1A; color: #3198F1">
-            <span class="mono">Blue on Black</span>
+            <span class="mono">Blue on Off-Black</span>
           </div>
         </div>
         <div class="pair">
           <div class="pair-demo" style="background: #3198F1; color: #F8F8F8">
-            <span class="mono">White on Blue</span>
+            <span class="mono">Off-White on Blue</span>
           </div>
         </div>
       </div>

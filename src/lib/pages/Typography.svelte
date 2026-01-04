@@ -110,17 +110,7 @@
         <div class="guideline-card">
           <div class="guideline-icon">💻</div>
           <h3>Fira Code</h3>
-          <p>Use for a more personal, techy feel in the details of a website — technical specs, metadata, labels, and code snippets. Adds character and technical authenticity.</p>
-        </div>
-        <div class="guideline-card">
-          <div class="guideline-icon">✂️</div>
-          <h3>Letter Spacing</h3>
-          <p class="mono">Tight on headings, normal on body</p>
-        </div>
-        <div class="guideline-card">
-          <div class="guideline-icon">📏</div>
-          <h3>Line Height</h3>
-          <p class="mono">1.6 for body text readability</p>
+          <p>Use for a more personal, techy feel in the details of a website. Perfect for technical specs, metadata, labels, and code snippets. Adds character and technical authenticity.</p>
         </div>
       </div>
     </section>
