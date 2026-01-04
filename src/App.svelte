@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { router } from './lib/router.js';
   import { theme } from './lib/stores.js';
   import Nav from './lib/components/Nav.svelte';
   import Overview from './lib/pages/Overview.svelte';
@@ -8,16 +9,32 @@
   import Typography from './lib/pages/Typography.svelte';
   import Logo from './lib/pages/Logo.svelte';
   
-  let currentPage = $state('overview');
   let showFooter = $state(false);
+  let currentPath = $state('/');
+  let isHome = $derived(currentPath === '/');
+  
+  // Subscribe to router changes
+  router.subscribe(path => {
+    currentPath = path;
+  });
+  
+  const routes = {
+    '/': Overview,
+    '/about': About,
+    '/colors': Colors,
+    '/typography': Typography,
+    '/logo': Logo,
+  };
+  
+  let CurrentComponent = $derived(routes[currentPath] || Overview);
   
   $effect(() => {
     // Reset footer visibility when page changes
     showFooter = false;
     
     const handleScroll = () => {
-      if (currentPage === 'overview') {
-        // For overview page, check scroll on the .overview element
+      if (isHome) {
+        // For home page, check scroll on the .overview element
         const overviewEl = document.querySelector('.overview');
         if (overviewEl) {
           showFooter = overviewEl.scrollTop > 100;
@@ -28,7 +45,7 @@
       }
     };
     
-    if (currentPage === 'overview') {
+    if (isHome) {
       // Wait for overview element to mount
       setTimeout(() => {
         const overviewEl = document.querySelector('.overview');
@@ -55,35 +72,25 @@
 </script>
 
 <div class="app">
-  {#if currentPage !== 'overview'}
-    <Nav bind:currentPage />
+  {#if !isHome}
+    <Nav />
   {/if}
   
-  <main class:home={currentPage === 'overview'}>
-    {#if currentPage === 'overview'}
-      <Overview onNavigate={(page) => currentPage = page} />
-    {:else if currentPage === 'about'}
-      <About />
-    {:else if currentPage === 'colors'}
-      <Colors />
-    {:else if currentPage === 'typography'}
-      <Typography />
-    {:else if currentPage === 'logo'}
-      <Logo />
-    {/if}
+  <main class:home={isHome}>
+    <CurrentComponent />
   </main>
   
   {#if showFooter}
     <footer>
       <div class="container">
         <div class="footer-left">
-          {#if currentPage !== 'overview'}
-            <button class="back-home" onclick={() => currentPage = 'overview'}>
+          {#if !isHome}
+            <a href="#/" class="back-home mono">
               ← Back to Home
-            </button>
+            </a>
           {/if}
-          <button class="back-to-top" onclick={() => {
-            if (currentPage === 'overview') {
+          <button class="back-to-top mono" onclick={() => {
+            if (isHome) {
               const overviewEl = document.querySelector('.overview');
               if (overviewEl) {
                 overviewEl.scrollTo({ top: 0, behavior: 'smooth' });
@@ -95,7 +102,7 @@
             ↑ Top
           </button>
         </div>
-        <p class="mono" class:centered={currentPage === 'overview'}>
+        <p class="mono" class:centered={isHome}>
           <a href="https://www.unicrnmafia.com" target="_blank" rel="noopener">unicrnmafia.com</a>
           {' • '}
           <a href="mailto:stable@unicrnmafia.com">stable@unicrnmafia.com</a>
@@ -158,10 +165,10 @@
     background: none;
     border: none;
     color: var(--text-secondary);
-    font-family: var(--font-mono);
     font-size: 0.9rem;
     cursor: pointer;
     transition: color 0.3s ease;
+    text-decoration: none;
   }
   
   .back-home:hover {
@@ -172,7 +179,6 @@
     background: none;
     border: none;
     color: var(--text-secondary);
-    font-family: var(--font-mono);
     font-size: 0.9rem;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -185,6 +191,8 @@
   footer p {
     color: var(--text-secondary);
     font-size: 0.85rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   
   footer p.centered {
@@ -195,6 +203,7 @@
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.3s ease;
+    word-break: break-word;
   }
   
   footer a:hover {
@@ -218,6 +227,12 @@
     }
     
     footer p {
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+    
+    .back-home,
+    .back-to-top {
       font-size: 0.8rem;
     }
   }

@@ -3,7 +3,6 @@
   import { onMount } from 'svelte';
   import { theme } from '../stores.js';
   
-  let { onNavigate } = $props();
   let scrollY = $state(0);
   let logoTransform = $state(0);
   let logoAnimated = $state(false);
@@ -130,16 +129,16 @@
     ></div>
     <div class="quadrants">
       {#each quadrants as quad, i}
-      <button 
+      <a 
+        href="#{`/${quad.id}`}"
         class="quadrant"
-        onclick={() => onNavigate(quad.id)}
         style="--accent-color: {quad.color}; --delay: {i * 0.1}s"
         aria-label="Navigate to {quad.title}"
       >
         <div class="quad-overlay"></div>
         <h2 class="quad-title mono">{quad.title}</h2>
         <div class="quad-arrow mono">→</div>
-      </button>
+      </a>
       {/each}
     </div>
   </div>
@@ -375,6 +374,7 @@
     align-items: center;
     justify-content: center;
     transition: background 0.4s ease;
+    text-decoration: none;
   }
   
   .quad-overlay {
@@ -476,12 +476,14 @@
     }
     
     .quadrants-wrapper {
-      padding: 2rem 1rem;
+      padding: 2rem 0;
+      height: auto;
+      min-height: 100vh;
     }
     
     .central-logo {
       background-size: 70%;
-      inset: 1rem;
+      inset: 0;
       opacity: 0.06;
     }
     
@@ -493,11 +495,15 @@
       grid-template-columns: 1fr;
       gap: 0;
       height: auto;
-      min-height: 600px;
+      min-height: unset;
+      border-radius: 0;
     }
     
     .quadrant {
-      padding: 2rem;
+      padding: 3rem 2rem;
+      min-height: 140px;
+      border-left: none;
+      border-right: none;
     }
     
     .quad-title {

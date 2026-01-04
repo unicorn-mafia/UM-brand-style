@@ -1,18 +1,23 @@
 <script>
   import { animate } from 'motion';
   import { theme } from '../stores.js';
+  import { router } from '../router.js';
   import { onMount } from 'svelte';
   
-  let { currentPage = $bindable('overview') } = $props();
   let scrolled = $state(false);
   let mounted = $state(false);
+  let currentPath = $state('/');
+  
+  // Subscribe to router changes
+  router.subscribe(path => {
+    currentPath = path;
+  });
   
   const pages = [
-    { id: 'overview', label: 'home', color: 'var(--text-primary)' },
-    { id: 'about', label: 'about', color: '#4EF9BD' },
-    { id: 'colors', label: 'colors', color: '#EE1701' },
-    { id: 'typography', label: 'typography', color: '#B307EB' },
-    { id: 'logo', label: 'logo', color: '#3198F1' }
+    { id: 'about', label: 'about', color: '#4EF9BD', path: '/about' },
+    { id: 'colors', label: 'colors', color: '#EE1701', path: '/colors' },
+    { id: 'typography', label: 'typography', color: '#B307EB', path: '/typography' },
+    { id: 'logo', label: 'logo', color: '#3198F1', path: '/logo' }
   ];
   
   function toggleTheme() {
@@ -41,26 +46,26 @@
 <nav class="nav" class:scrolled>
   <div class="nav-container">
     <div class="nav-left">
-      <button class="logo-container" onclick={() => currentPage = 'overview'}>
+      <a href="#/" class="logo-container">
         <img 
           src={$theme === 'dark' ? `${import.meta.env.BASE_URL}images/UnicornMafia_logo_inverse.svg` : `${import.meta.env.BASE_URL}images/UnicornMafia_logo.svg`} 
           alt="Unicorn Mafia"
           class="logo"
         />
         <span class="brand">UNICORN MAFIA</span>
-      </button>
+      </a>
     </div>
     
     <div class="nav-center">
       {#each pages as page, i}
-        <button 
+        <a 
+          href="#{page.path}"
           class="nav-item mono" 
-          class:active={currentPage === page.id}
-          onclick={() => currentPage = page.id}
+          class:active={currentPath === page.path}
           style="--delay: {i * 0.05}s; --accent-color: {page.color}"
         >
           {page.label}
-        </button>
+        </a>
       {/each}
     </div>
     
@@ -120,6 +125,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    text-decoration: none;
   }
   
   .logo {
@@ -137,6 +143,7 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+    white-space: nowrap;
   }
   
   .nav-center {
@@ -158,6 +165,7 @@
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: var(--delay, 0s);
+    text-decoration: none;
   }
   
   @keyframes fadeIn {
@@ -229,7 +237,12 @@
     }
     
     .brand {
-      font-size: 1rem;
+      font-size: 0.9rem;
+      letter-spacing: -0.01em;
+    }
+    
+    .logo-container {
+      gap: 0.5rem;
     }
     
     .logo {

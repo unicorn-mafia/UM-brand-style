@@ -77,12 +77,12 @@
           <p>Say what we mean. Build what we say.</p>
         </div>
         <div class="tone-item">
-          <h3>Technical</h3>
-          <p>World-class engineers. Shipping real products, winning real hackathons.</p>
+          <h3>Energetic</h3>
+          <p>High intensity, high velocity, high output.</p>
         </div>
         <div class="tone-item">
-          <h3>Community</h3>
-          <p>Learning, building, and winning together.</p>
+          <h3>Bold</h3>
+          <p>Our members are building remarkable things.</p>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
     <!-- Visual Language -->
     <div class="card visual">
       <h2>Visual Language</h2>
-      <p class="visual-desc">High-contrast minimalism meets pixel-art nostalgia. The unicorn represents our technical roots and gaming culture. Four vibrant accents reflect the diversity of skills in our community.</p>
+      <p class="visual-desc">Clean, intentional design with a hacker's soul. Apple's polish meets Linux's raw power. High-contrast minimalism. Terminal-sharp typography. Pixel-art nostalgia. The unicorn is our nod to technical roots and gaming culture. Four vibrant colors for the diverse makers and builders in our community.</p>
       <div class="color-showcase">
         <div class="color-item">
           <div class="color-swatch" style="background: var(--um-turquoise)"></div>

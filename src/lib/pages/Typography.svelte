@@ -286,6 +286,8 @@ body {
     font-size: 1.5rem;
     line-height: 1.6;
     white-space: pre-line;
+    word-break: break-all;
+    overflow-wrap: break-word;
     color: var(--text-primary);
     padding: 2rem;
     background: var(--bg-secondary);
@@ -361,6 +363,9 @@ body {
   
   .code-block pre {
     margin: 0;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-wrap: normal;
   }
   
   .code-block code {
@@ -368,6 +373,7 @@ body {
     font-size: 0.9rem;
     line-height: 1.8;
     color: var(--text-primary);
+    white-space: pre;
   }
   
   .demo-card {
