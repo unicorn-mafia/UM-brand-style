@@ -250,7 +250,6 @@
               <li>Stretching or distorting the logo</li>
               <li>Changing the colors or removing elements</li>
               <li>Rotating or skewing the logo</li>
-              <li>Adding effects, shadows, or outlines</li>
               <li>Placing on busy or low-contrast backgrounds</li>
             </ul>
           </div>

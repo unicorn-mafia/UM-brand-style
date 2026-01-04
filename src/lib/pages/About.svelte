@@ -5,7 +5,7 @@
   const positioning = [
     { label: 'Elite', value: 'Not Elitist', desc: 'Top talent, open mindset', color: '#4EF9BD' },
     { label: 'Technical', value: 'Yet Accessible', desc: 'Deep expertise, clear communication', color: '#EE1701' },
-    { label: 'Professional', value: 'Still Raw', desc: 'High standards, authentic energy', color: '#B307EB' },
+    { label: 'Professional', value: 'Real', desc: 'High standards, authentic energy', color: '#B307EB' },
     { label: 'Collaborative', value: 'Competitive', desc: 'Rise together, win together', color: '#3198F1' }
   ];
   
@@ -70,19 +70,19 @@
       <div class="tone-grid">
         <div class="tone-item">
           <h3>Confident</h3>
-          <p>We're the best builders in London/EU. No question.</p>
+          <p>Europe's highest-signal builder community. Period.</p>
         </div>
         <div class="tone-item">
-          <h3>Direct</h3>
-          <p>No fluff, no corporate speak, no BS.</p>
+          <h3>Unfiltered</h3>
+          <p>Say what we mean. Build what we say.</p>
         </div>
         <div class="tone-item">
           <h3>Technical</h3>
-          <p>We speak in code, not buzzwords.</p>
+          <p>World-class engineers. Shipping real products, winning real hackathons.</p>
         </div>
         <div class="tone-item">
           <h3>Community</h3>
-          <p>Building together, winning together.</p>
+          <p>Learning, building, and winning together.</p>
         </div>
       </div>
     </div>
@@ -163,7 +163,7 @@
   .stat-value {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--accent-color, var(--um-turquoise));
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
   }
