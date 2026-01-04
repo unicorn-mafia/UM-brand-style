@@ -6,6 +6,7 @@
   let { onNavigate } = $props();
   let scrollY = $state(0);
   let logoTransform = $state(0);
+  let logoAnimated = $state(false);
   
   function toggleTheme() {
     theme.update(t => t === 'light' ? 'dark' : 'light');
@@ -28,21 +29,30 @@
   function handleScroll(e) {
     // Get scroll position from the .overview element
     const target = e.target;
-    scrollY = target.scrollTop;
+    const currentScroll = target.scrollTop;
+    scrollY = currentScroll;
     // Logo moves 1.5x faster (parallax effect)
-    logoTransform = scrollY * 1.5;
+    // Cap the transform at the viewport height to prevent logo from going too far
+    const maxTransform = window.innerHeight * 0.8;
+    logoTransform = Math.min(currentScroll * 1.5, maxTransform);
   }
   
   onMount(() => {
     const overviewEl = document.querySelector('.overview');
     if (overviewEl) {
+      // Initialize scroll position
+      scrollY = overviewEl.scrollTop;
+      logoTransform = scrollY * 1.5;
+      
       overviewEl.addEventListener('scroll', handleScroll);
     }
     
     animate('.hero-logo',
       { opacity: [0, 1], scale: [0.8, 1] },
       { duration: 0.8, easing: [0.16, 1, 0.3, 1] }
-    );
+    ).then(() => {
+      logoAnimated = true;
+    });
     
     animate('.hero-title',
       { opacity: [0, 1], y: [-20, 0] },
@@ -92,6 +102,7 @@
         src={$theme === 'dark' ? `${import.meta.env.BASE_URL}images/UnicornMafia_logo_inverse.svg` : `${import.meta.env.BASE_URL}images/UnicornMafia_logo.svg`} 
         alt="Unicorn Mafia"
         class="hero-logo"
+        class:animated={logoAnimated}
         style="transform: translateY(-{logoTransform}px);"
       />
       <h1 class="hero-title">
@@ -196,6 +207,10 @@
     opacity: 0;
     transition: transform 0.1s ease-out;
     will-change: transform;
+  }
+  
+  .hero-logo.animated {
+    opacity: 1 !important;
   }
   
   .hero-title {
