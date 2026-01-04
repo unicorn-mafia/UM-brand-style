@@ -3,10 +3,16 @@
   import { onMount } from 'svelte';
   
   const positioning = [
-    'elite but not elitist',
-    'technical but accessible',
-    'professional but raw',
-    'community-first always'
+    { label: 'Elite', value: 'Not Elitist', desc: 'Top talent, open mindset' },
+    { label: 'Technical', value: 'Yet Accessible', desc: 'Deep expertise, clear communication' },
+    { label: 'Professional', value: 'Still Raw', desc: 'High standards, authentic energy' },
+    { label: 'Community', value: 'Always First', desc: 'We rise together' }
+  ];
+  
+  const stats = [
+    { value: '850+', label: 'Elite Builders' },
+    { value: '500+', label: 'Hackathon Wins' },
+    { value: '30+', label: 'Companies Built' }
   ];
   
   onMount(() => {
@@ -14,6 +20,13 @@
       animate(target,
         { opacity: [0, 1], y: [30, 0] },
         { duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+      );
+    });
+    
+    inView('.stat-card', ({ target }) => {
+      animate(target,
+        { opacity: [0, 1], scale: [0.9, 1] },
+        { duration: 0.5, easing: [0.22, 1, 0.36, 1] }
       );
     });
   });
@@ -24,31 +37,77 @@
     <h1>Brand Identity</h1>
     <p class="subtitle mono">highest signal, zero noise</p>
     
+    <!-- Stats -->
+    <div class="stats-grid">
+      {#each stats as stat}
+        <div class="stat-card">
+          <div class="stat-value">{stat.value}</div>
+          <div class="stat-label mono">{stat.label}</div>
+        </div>
+      {/each}
+    </div>
+    
+    <!-- Positioning -->
     <div class="card">
       <h2>Positioning</h2>
-      <div class="positioning mono">
+      <div class="positioning-grid">
         {#each positioning as pos}
-          <div class="pos-item">{pos}</div>
+          <div class="pos-card">
+            <div class="pos-header">
+              <span class="pos-label">{pos.label}</span>
+              <span class="pos-separator">×</span>
+              <span class="pos-value">{pos.value}</span>
+            </div>
+            <p class="pos-desc mono">{pos.desc}</p>
+          </div>
         {/each}
       </div>
     </div>
     
+    <!-- Voice & Tone -->
     <div class="card">
       <h2>Voice & Tone</h2>
-      <p><strong>Confident.</strong> We know we're the best builders in London.</p>
-      <p><strong>Direct.</strong> No fluff, no corporate speak, no BS.</p>
-      <p><strong>Technical.</strong> We speak in code, not buzzwords.</p>
-      <p><strong>Community-focused.</strong> We're building together.</p>
+      <div class="tone-grid">
+        <div class="tone-item">
+          <h3>Confident</h3>
+          <p>We're the best builders in London. No question.</p>
+        </div>
+        <div class="tone-item">
+          <h3>Direct</h3>
+          <p>No fluff, no corporate speak, no BS.</p>
+        </div>
+        <div class="tone-item">
+          <h3>Technical</h3>
+          <p>We speak in code, not buzzwords.</p>
+        </div>
+        <div class="tone-item">
+          <h3>Community</h3>
+          <p>Building together, winning together.</p>
+        </div>
+      </div>
     </div>
     
-    <div class="card">
+    <!-- Visual Language -->
+    <div class="card visual">
       <h2>Visual Language</h2>
-      <p>Clean, minimal, high-contrast. The pixel-art unicorn represents technical roots and gaming culture. Vibrant accent colors reflect diverse skills.</p>
-      <div class="colors">
-        <span class="dot" style="background: var(--um-turquoise)"></span>
-        <span class="dot" style="background: var(--um-red)"></span>
-        <span class="dot" style="background: var(--um-purple)"></span>
-        <span class="dot" style="background: var(--um-blue)"></span>
+      <p class="visual-desc">High-contrast minimalism meets pixel-art nostalgia. The unicorn represents our technical roots and gaming culture. Four vibrant accents reflect the diversity of skills in our community.</p>
+      <div class="color-showcase">
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--um-turquoise)"></div>
+          <span class="mono">Turquoise</span>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--um-red)"></div>
+          <span class="mono">Red</span>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--um-purple)"></div>
+          <span class="mono">Purple</span>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--um-blue)"></div>
+          <span class="mono">Blue</span>
+        </div>
       </div>
     </div>
   </div>
@@ -61,7 +120,7 @@
   }
   
   .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem;
   }
@@ -76,6 +135,45 @@
     margin-bottom: 3rem;
   }
   
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .stat-card {
+    background: var(--bg-elevated);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--um-turquoise);
+  }
+  
+  .stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--um-turquoise);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  
+  /* Cards */
   .card {
     background: var(--bg-elevated);
     border: 2px solid var(--border-color);
@@ -94,50 +192,116 @@
   
   .card h2 {
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 700;
   }
   
-  .card p {
-    line-height: 1.8;
-    margin-bottom: 1rem;
+  /* Positioning */
+  .positioning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
   
-  .positioning {
-    color: var(--text-secondary);
+  .pos-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .pos-card:hover {
+    background: var(--um-accent-bg);
+    transform: translateX(4px);
+  }
+  
+  .pos-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .pos-label {
+    font-weight: 700;
+    color: var(--text-primary);
     font-size: 1.1rem;
   }
   
-  .pos-item {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border-color);
+  .pos-separator {
+    color: var(--um-turquoise);
+    font-weight: 600;
   }
   
-  .pos-item:last-child {
-    border-bottom: none;
+  .pos-value {
+    font-weight: 600;
+    color: var(--um-turquoise);
+    font-size: 1.1rem;
   }
   
-  .colors {
+  .pos-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  /* Voice & Tone */
+  .tone-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .tone-item h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  
+  .tone-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  /* Visual Language */
+  .visual-desc {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  
+  .color-showcase {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .color-item {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 0.75rem;
-    margin-top: 1.5rem;
   }
   
-  .dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: inline-block;
-    animation: pulse 2s infinite;
+  .color-swatch {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
   
-  .dot:nth-child(2) { animation-delay: 0.2s; }
-  .dot:nth-child(3) { animation-delay: 0.4s; }
-  .dot:nth-child(4) { animation-delay: 0.6s; }
+  .color-swatch:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px currentColor;
+  }
   
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+  .color-item span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
   }
   
   @media (max-width: 768px) {
@@ -149,12 +313,35 @@
       padding: 0 1.5rem;
     }
     
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .stat-card {
+      padding: 1.5rem;
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+    }
+    
     .card {
       padding: 1.5rem;
     }
     
-    .positioning {
-      font-size: 1rem;
+    .positioning-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .tone-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .color-showcase {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
