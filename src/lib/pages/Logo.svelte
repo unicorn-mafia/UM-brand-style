@@ -111,109 +111,111 @@
         </div>
       {/if}
       
-      <!-- Regular Version -->
-      <div class="download-section">
-        <h3>Regular Version <span class="mono">(black unicorn)</span></h3>
-        
-        <div class="download-grid">
-          <!-- SVG -->
-          <div class="download-card">
-            <div class="format-header">
-              <h4 class="mono">SVG</h4>
-              <span class="badge">Recommended</span>
-            </div>
-            <p class="mono desc">vector / scalable / best quality</p>
-            <button 
-              class="download-btn" 
-              onclick={() => handleDownloadSVG(false)}
-              disabled={downloading}
-            >
-              {downloading ? 'Downloading...' : 'Download SVG'}
-            </button>
-          </div>
+      <div class="downloads-columns">
+        <!-- Regular Version -->
+        <div class="download-section">
+          <h3>Regular Version <span class="mono">(black unicorn)</span></h3>
           
-          <!-- Raster -->
-          <div class="download-card">
-            <div class="format-header">
-              <h4 class="mono">PNG / JPG</h4>
+          <div class="download-options">
+            <!-- SVG -->
+            <div class="download-card">
+              <div class="format-header">
+                <h4 class="mono">SVG</h4>
+                <span class="badge">Recommended</span>
+              </div>
+              <p class="mono desc">vector / scalable / best quality</p>
+              <button 
+                class="download-btn" 
+                onclick={() => handleDownloadSVG(false)}
+                disabled={downloading}
+              >
+                {downloading ? 'Downloading...' : 'Download SVG'}
+              </button>
             </div>
-            <p class="mono desc">raster / for specific sizes</p>
             
-            <select bind:value={selectedSize} class="size-select mono">
-              {#each sizes as size}
-                <option value={size.value}>{size.label}</option>
-              {/each}
-            </select>
-            
-            <div class="button-group">
-              <button 
-                class="download-btn secondary" 
-                onclick={() => handleDownloadRaster(false, 'png')}
-                disabled={downloading}
-              >
-                PNG
-              </button>
-              <button 
-                class="download-btn secondary" 
-                onclick={() => handleDownloadRaster(false, 'jpg')}
-                disabled={downloading}
-              >
-                JPG
-              </button>
+            <!-- Raster -->
+            <div class="download-card">
+              <div class="format-header">
+                <h4 class="mono">PNG / JPG</h4>
+              </div>
+              <p class="mono desc">raster / for specific sizes</p>
+              
+              <select bind:value={selectedSize} class="size-select mono">
+                {#each sizes as size}
+                  <option value={size.value}>{size.label}</option>
+                {/each}
+              </select>
+              
+              <div class="button-group">
+                <button 
+                  class="download-btn secondary" 
+                  onclick={() => handleDownloadRaster(false, 'png')}
+                  disabled={downloading}
+                >
+                  PNG
+                </button>
+                <button 
+                  class="download-btn secondary" 
+                  onclick={() => handleDownloadRaster(false, 'jpg')}
+                  disabled={downloading}
+                >
+                  JPG
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Inverse Version -->
-      <div class="download-section">
-        <h3>Inverse Version <span class="mono">(white unicorn)</span></h3>
         
-        <div class="download-grid">
-          <!-- SVG -->
-          <div class="download-card">
-            <div class="format-header">
-              <h4 class="mono">SVG</h4>
-              <span class="badge">Recommended</span>
-            </div>
-            <p class="mono desc">vector / scalable / best quality</p>
-            <button 
-              class="download-btn" 
-              onclick={() => handleDownloadSVG(true)}
-              disabled={downloading}
-            >
-              {downloading ? 'Downloading...' : 'Download SVG'}
-            </button>
-          </div>
+        <!-- Inverse Version -->
+        <div class="download-section">
+          <h3>Inverse Version <span class="mono">(white unicorn)</span></h3>
           
-          <!-- Raster -->
-          <div class="download-card">
-            <div class="format-header">
-              <h4 class="mono">PNG / JPG</h4>
+          <div class="download-options">
+            <!-- SVG -->
+            <div class="download-card">
+              <div class="format-header">
+                <h4 class="mono">SVG</h4>
+                <span class="badge">Recommended</span>
+              </div>
+              <p class="mono desc">vector / scalable / best quality</p>
+              <button 
+                class="download-btn" 
+                onclick={() => handleDownloadSVG(true)}
+                disabled={downloading}
+              >
+                {downloading ? 'Downloading...' : 'Download SVG'}
+              </button>
             </div>
-            <p class="mono desc">raster / for specific sizes</p>
             
-            <select bind:value={selectedSize} class="size-select mono">
-              {#each sizes as size}
-                <option value={size.value}>{size.label}</option>
-              {/each}
-            </select>
-            
-            <div class="button-group">
-              <button 
-                class="download-btn secondary" 
-                onclick={() => handleDownloadRaster(true, 'png')}
-                disabled={downloading}
-              >
-                PNG
-              </button>
-              <button 
-                class="download-btn secondary" 
-                onclick={() => handleDownloadRaster(true, 'jpg')}
-                disabled={downloading}
-              >
-                JPG
-              </button>
+            <!-- Raster -->
+            <div class="download-card">
+              <div class="format-header">
+                <h4 class="mono">PNG / JPG</h4>
+              </div>
+              <p class="mono desc">raster / for specific sizes</p>
+              
+              <select bind:value={selectedSize} class="size-select mono">
+                {#each sizes as size}
+                  <option value={size.value}>{size.label}</option>
+                {/each}
+              </select>
+              
+              <div class="button-group">
+                <button 
+                  class="download-btn secondary" 
+                  onclick={() => handleDownloadRaster(true, 'png')}
+                  disabled={downloading}
+                >
+                  PNG
+                </button>
+                <button 
+                  class="download-btn secondary" 
+                  onclick={() => handleDownloadRaster(true, 'jpg')}
+                  disabled={downloading}
+                >
+                  JPG
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -361,8 +363,14 @@
     color: var(--text-secondary);
   }
   
+  .downloads-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
   .download-section {
-    margin: 3rem 0;
     opacity: 0;
   }
   
@@ -376,9 +384,9 @@
     font-weight: 400;
   }
   
-  .download-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .download-options {
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
   }
   
@@ -581,8 +589,9 @@
       max-width: 150px;
     }
     
-    .download-grid {
+    .downloads-columns {
       grid-template-columns: 1fr;
+      gap: 2rem;
     }
     
     .download-card {
