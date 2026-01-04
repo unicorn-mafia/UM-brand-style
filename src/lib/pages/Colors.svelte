@@ -9,7 +9,7 @@
   ];
   
   const accentColors = [
-    { name: 'Turquoise', hex: '#4EF9BD', rgb: 'rgb(78, 249, 189)', var: '--um-turquoise', desc: 'Primary interactive' },
+    { name: 'Turquoise', hex: '#4EF9BD', rgb: 'rgb(78, 249, 189)', var: '--um-turquoise', desc: 'Energy, innovation' },
     { name: 'Red', hex: '#EE1701', rgb: 'rgb(238, 23, 1)', var: '--um-red', desc: 'Urgency, passion' },
     { name: 'Purple', hex: '#B307EB', rgb: 'rgb(179, 7, 235)', var: '--um-purple', desc: 'Creativity, premium' },
     { name: 'Blue', hex: '#3198F1', rgb: 'rgb(49, 152, 241)', var: '--um-blue', desc: 'Trust, technical' }
@@ -110,13 +110,13 @@
         </div>
         <div class="usage-card">
           <div class="usage-icon">✨</div>
-          <h3>Interactive</h3>
-          <p class="mono">Turquoise → buttons, links, hover</p>
+          <h3>Accents</h3>
+          <p class="mono">All 4 colors → strategic emphasis</p>
         </div>
         <div class="usage-card">
           <div class="usage-icon">🎯</div>
-          <h3>Highlights</h3>
-          <p class="mono">Accents → strategic emphasis only</p>
+          <h3>Balance</h3>
+          <p class="mono">Mix colors → maintain visual harmony</p>
         </div>
         <div class="usage-card">
           <div class="usage-icon">⚡</div>

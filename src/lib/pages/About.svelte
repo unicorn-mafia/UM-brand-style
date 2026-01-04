@@ -3,16 +3,16 @@
   import { onMount } from 'svelte';
   
   const positioning = [
-    { label: 'Elite', value: 'Not Elitist', desc: 'Top talent, open mindset' },
-    { label: 'Technical', value: 'Yet Accessible', desc: 'Deep expertise, clear communication' },
-    { label: 'Professional', value: 'Still Raw', desc: 'High standards, authentic energy' },
-    { label: 'Community', value: 'Always First', desc: 'We rise together' }
+    { label: 'Elite', value: 'Not Elitist', desc: 'Top talent, open mindset', color: '#4EF9BD' },
+    { label: 'Technical', value: 'Yet Accessible', desc: 'Deep expertise, clear communication', color: '#EE1701' },
+    { label: 'Professional', value: 'Still Raw', desc: 'High standards, authentic energy', color: '#B307EB' },
+    { label: 'Community', value: 'Always First', desc: 'We rise together', color: '#3198F1' }
   ];
   
   const stats = [
-    { value: '850+', label: 'Elite Builders' },
-    { value: '500+', label: 'Hackathon Wins' },
-    { value: '30+', label: 'Companies Built' }
+    { value: '850+', label: 'Elite Builders', color: '#4EF9BD' },
+    { value: '500+', label: 'Hackathon Wins', color: '#EE1701' },
+    { value: '30+', label: 'Companies Built', color: '#B307EB' }
   ];
   
   onMount(() => {
@@ -40,7 +40,7 @@
     <!-- Stats -->
     <div class="stats-grid">
       {#each stats as stat}
-        <div class="stat-card">
+        <div class="stat-card" style="--accent-color: {stat.color}">
           <div class="stat-value">{stat.value}</div>
           <div class="stat-label mono">{stat.label}</div>
         </div>
@@ -52,7 +52,7 @@
       <h2>Positioning</h2>
       <div class="positioning-grid">
         {#each positioning as pos}
-          <div class="pos-card">
+          <div class="pos-card" style="--accent-color: {pos.color}">
             <div class="pos-header">
               <span class="pos-label">{pos.label}</span>
               <span class="pos-separator">×</span>
@@ -157,13 +157,13 @@
   .stat-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: var(--um-turquoise);
+    border-color: var(--accent-color, var(--um-turquoise));
   }
   
   .stat-value {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--um-turquoise);
+    color: var(--accent-color, var(--um-turquoise));
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
   }
@@ -230,13 +230,13 @@
   }
   
   .pos-separator {
-    color: var(--um-turquoise);
+    color: var(--accent-color, var(--um-turquoise));
     font-weight: 600;
   }
   
   .pos-value {
     font-weight: 600;
-    color: var(--um-turquoise);
+    color: var(--accent-color, var(--um-turquoise));
     font-size: 1.1rem;
   }
   

@@ -8,11 +8,11 @@
   let mounted = $state(false);
   
   const pages = [
-    { id: 'overview', label: 'home' },
-    { id: 'about', label: 'about' },
-    { id: 'colors', label: 'colors' },
-    { id: 'typography', label: 'typography' },
-    { id: 'logo', label: 'logo' }
+    { id: 'overview', label: 'home', color: 'var(--text-primary)' },
+    { id: 'about', label: 'about', color: '#4EF9BD' },
+    { id: 'colors', label: 'colors', color: '#EE1701' },
+    { id: 'typography', label: 'typography', color: '#B307EB' },
+    { id: 'logo', label: 'logo', color: '#3198F1' }
   ];
   
   function toggleTheme() {
@@ -57,7 +57,7 @@
           class="nav-item mono" 
           class:active={currentPage === page.id}
           onclick={() => currentPage = page.id}
-          style="--delay: {i * 0.05}s"
+          style="--delay: {i * 0.05}s; --accent-color: {page.color}"
         >
           {page.label}
         </button>
@@ -171,14 +171,14 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--um-turquoise);
+    background: var(--accent-color, var(--um-turquoise));
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
   
   .nav-item:hover,
   .nav-item.active {
-    color: var(--um-turquoise);
+    color: var(--accent-color, var(--um-turquoise));
   }
   
   .nav-item.active::after {
