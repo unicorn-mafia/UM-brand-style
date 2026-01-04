@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Code:wght@400;600&display=swap');
+
+:root {
+  --um-black: #1A1A1A;
+  --um-white: #F8F8F8;
+  --um-turquoise: #4EF9BD;
+  --um-red: #EE1701;
+  --um-purple: #B307EB;
+  --um-blue: #3198F1;
+  --um-gray: #888888;
+  --um-gray-light: #F0F0F0;
+  --um-gray-border: #DADADA;
+  --um-accent-bg: rgba(78, 249, 189, 0.08);
+  
+  --bg-primary: var(--um-white);
+  --bg-secondary: var(--um-gray-light);
+  --bg-elevated: #FFFFFF;
+  --text-primary: var(--um-black);
+  --text-secondary: var(--um-gray);
+  --text-inverse: #FFFFFF;
+  --border-color: var(--um-gray-border);
+  --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.04);
+  --shadow-md: 0 4px 16px rgba(26, 26, 26, 0.08);
+  
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #121212;
+  --bg-secondary: #1C1C1C;
+  --bg-elevated: #1A1A1A;
+  --text-primary: #F0F0F0;
+  --text-secondary: #A0A0A0;
+  --text-inverse: #1A1A1A;
+  --border-color: #2E2E2E;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --um-accent-bg: rgba(78, 249, 189, 0.12);
+  
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 20px var(--um-turquoise)); }
+  50% { filter: drop-shadow(0 0 40px var(--um-purple)); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Selection */
+::selection {
+  background: var(--um-turquoise);
+  color: #1A1A1A;
+}
+
+::-moz-selection {
+  background: var(--um-turquoise);
+  color: #1A1A1A;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--um-gray);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--um-turquoise);
+}
+
