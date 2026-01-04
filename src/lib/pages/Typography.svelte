@@ -8,14 +8,16 @@
       family: "'Inter', sans-serif",
       purpose: 'Primary typeface',
       weights: '400, 600, 700, 800',
-      sample: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n0123456789'
+      sample: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n0123456789',
+      usage: 'Headings, body text, and primary content. Provides clarity and professionalism.'
     },
     {
       name: 'Fira Code',
       family: "'Fira Code', monospace",
       purpose: 'Monospace / Technical',
       weights: '400, 600',
-      sample: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n0123456789 != === => <>'
+      sample: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n0123456789',
+      usage: 'Technical specs, metadata, labels, and code snippets. Adds technical authenticity.'
     }
   ];
   
@@ -69,6 +71,7 @@
           <div class="typeface-sample" style="font-family: {typeface.family}">
             {typeface.sample}
           </div>
+          <p class="typeface-usage"><strong>Usage:</strong> {typeface.usage}</p>
         </div>
       {/each}
     </section>
@@ -120,24 +123,6 @@
             </div>
           </div>
         {/each}
-      </div>
-    </section>
-    
-    <!-- Usage Guidelines -->
-    <section class="section">
-      <h2>Usage Guidelines</h2>
-      
-      <div class="guidelines-grid">
-        <div class="guideline-card">
-          <div class="guideline-icon" style="font-family: 'Inter', sans-serif;">Aa</div>
-          <h3>Inter</h3>
-          <p>Headings, body text, and primary content. Provides clarity and professionalism.</p>
-        </div>
-        <div class="guideline-card">
-          <div class="guideline-icon" style="font-family: 'Fira Code', monospace;">Aa</div>
-          <h3>Fira Code</h3>
-          <p>Technical specs, metadata, labels, and code snippets. Adds technical authenticity.</p>
-        </div>
       </div>
     </section>
     
@@ -305,6 +290,14 @@ body {
     padding: 2rem;
     background: var(--bg-secondary);
     border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .typeface-usage {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
   }
   
   .type-scale {
@@ -346,44 +339,6 @@ body {
     padding: 0.25rem 0.6rem;
     border-radius: 4px;
     font-weight: 600;
-  }
-  
-  .guidelines-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .guideline-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-  }
-  
-  .guideline-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    background: var(--um-accent-bg);
-  }
-  
-  .guideline-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .guideline-card h3 {
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
-  }
-  
-  .guideline-card p {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
   }
   
   .code-section {
@@ -483,15 +438,6 @@ body {
     }
     
     .scale-sample {
-      padding: 1.5rem;
-    }
-    
-    .guidelines-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    
-    .guideline-card {
       padding: 1.5rem;
     }
     
