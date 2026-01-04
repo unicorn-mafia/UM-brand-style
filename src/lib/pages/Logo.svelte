@@ -2,13 +2,15 @@
   import { animate, inView } from 'motion';
   import { onMount } from 'svelte';
   import { convertSvgToImage, downloadFile } from '../utils.js';
-  import { theme } from '../stores.js';
   
   let selectedSize = $state(1024);
   let downloading = $state(false);
   let downloadError = $state(null);
   
   const sizes = [
+    { value: 64, label: '64px - favicon' },
+    { value: 128, label: '128px - social icons' },
+    { value: 256, label: '256px - app icons' },
     { value: 512, label: '512px - web icons' },
     { value: 1024, label: '1024px - standard' },
     { value: 2048, label: '2048px - retina' },
@@ -227,7 +229,7 @@
       <div class="guidelines">
         <div class="guideline-item">
           <h3>📏 Sizing</h3>
-          <p class="mono">minimum: 50px / optimal: 100-200px / print: 300dpi+</p>
+          <p class="mono">favicon: 64px / icons: 128-256px / web: 512px / standard: 1024px / print: 2048px+</p>
         </div>
         
         <div class="guideline-item">
@@ -322,6 +324,14 @@
     min-height: 300px;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-sm);
+  }
+  
+  .logo-preview.light .preview-box {
+    background: #F5F5F5;
+  }
+  
+  [data-theme="dark"] .logo-preview.light .preview-box {
+    background: #D8D8D8;
   }
   
   .logo-preview.dark .preview-box {
