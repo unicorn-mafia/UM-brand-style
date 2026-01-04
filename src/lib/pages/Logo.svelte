@@ -23,7 +23,7 @@
       downloadError = null;
       
       const filename = isInverse ? 'UnicornMafia_logo_inverse.svg' : 'UnicornMafia_logo.svg';
-      const response = await fetch(`/images/${filename}`);
+      const response = await fetch(`${import.meta.env.BASE_URL}images/${filename}`);
       const svgText = await response.text();
       const blob = new Blob([svgText], { type: 'image/svg+xml' });
       
@@ -42,7 +42,7 @@
       downloadError = null;
       
       const filename = isInverse ? 'UnicornMafia_logo_inverse.svg' : 'UnicornMafia_logo.svg';
-      const path = `/images/${filename}`;
+      const path = `${import.meta.env.BASE_URL}images/${filename}`;
       
       const blob = await convertSvgToImage(path, format, selectedSize, isInverse);
       const suffix = isInverse ? '_inverse' : '';
@@ -86,14 +86,14 @@
       <div class="logo-grid">
         <div class="logo-preview light">
           <div class="preview-box">
-            <img src="/images/UnicornMafia_logo.svg" alt="Unicorn Mafia Logo" />
+            <img src="{import.meta.env.BASE_URL}images/UnicornMafia_logo.svg" alt="Unicorn Mafia Logo" />
           </div>
           <p class="mono">regular / for light backgrounds</p>
         </div>
         
         <div class="logo-preview dark">
           <div class="preview-box">
-            <img src="/images/UnicornMafia_logo_inverse.svg" alt="Unicorn Mafia Logo Inverse" />
+            <img src="{import.meta.env.BASE_URL}images/UnicornMafia_logo_inverse.svg" alt="Unicorn Mafia Logo Inverse" />
           </div>
           <p class="mono">inverse / for dark backgrounds</p>
         </div>

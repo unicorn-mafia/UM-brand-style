@@ -82,7 +82,7 @@
   <div class="hero">
     <div class="hero-content">
       <img 
-        src={$theme === 'dark' ? '/images/UnicornMafia_logo_inverse.svg' : '/images/UnicornMafia_logo.svg'} 
+        src={$theme === 'dark' ? `${import.meta.env.BASE_URL}images/UnicornMafia_logo_inverse.svg` : `${import.meta.env.BASE_URL}images/UnicornMafia_logo.svg`} 
         alt="Unicorn Mafia"
         class="hero-logo"
         style="transform: translateY(-{logoTransform}px);"
@@ -104,7 +104,11 @@
   </div>
   
   <div class="quadrants-wrapper">
-    <div class="central-logo" class:dark={$theme === 'dark'}></div>
+    <div 
+      class="central-logo" 
+      class:dark={$theme === 'dark'}
+      style="background-image: url('{$theme === 'dark' ? `${import.meta.env.BASE_URL}images/UnicornMafia_logo_inverse.svg` : `${import.meta.env.BASE_URL}images/UnicornMafia_logo.svg`}')"
+    ></div>
     <div class="quadrants">
       {#each quadrants as quad, i}
       <button 
@@ -288,7 +292,6 @@
   .central-logo {
     position: absolute;
     inset: 2rem;
-    background-image: url('/images/UnicornMafia_logo.svg');
     background-size: 45%;
     background-position: center;
     background-repeat: no-repeat;
@@ -299,7 +302,6 @@
   }
   
   .central-logo.dark {
-    background-image: url('/images/UnicornMafia_logo_inverse.svg');
     opacity: 0.15;
   }
   

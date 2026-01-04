@@ -43,7 +43,7 @@
     <div class="nav-left">
       <button class="logo-container" onclick={() => currentPage = 'overview'}>
         <img 
-          src={$theme === 'dark' ? '/images/UnicornMafia_logo_inverse.svg' : '/images/UnicornMafia_logo.svg'} 
+          src={$theme === 'dark' ? `${import.meta.env.BASE_URL}images/UnicornMafia_logo_inverse.svg` : `${import.meta.env.BASE_URL}images/UnicornMafia_logo.svg`} 
           alt="Unicorn Mafia"
           class="logo"
         />
