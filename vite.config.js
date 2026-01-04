@@ -3,7 +3,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 export default defineConfig({
   plugins: [svelte()],
-  base: '/UM-branding/',
+  base: '/UM-brand-style/',
   server: {
     port: 3000
   }
