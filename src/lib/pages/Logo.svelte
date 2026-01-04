@@ -230,41 +230,6 @@
       
       <div class="guidelines">
         <div class="guideline-card">
-          <div class="guideline-icon">📏</div>
-          <h3>Recommended Sizes</h3>
-          <div class="guideline-content">
-            <div class="size-item">
-              <span class="mono label">Favicon</span>
-              <span class="mono value">64px</span>
-            </div>
-            <div class="size-item">
-              <span class="mono label">Social Icons</span>
-              <span class="mono value">128-256px</span>
-            </div>
-            <div class="size-item">
-              <span class="mono label">Web Display</span>
-              <span class="mono value">512px</span>
-            </div>
-            <div class="size-item">
-              <span class="mono label">Standard Use</span>
-              <span class="mono value">1024px</span>
-            </div>
-            <div class="size-item">
-              <span class="mono label">Print Quality</span>
-              <span class="mono value">2048px+</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="guideline-card">
-          <div class="guideline-icon">🎯</div>
-          <h3>Clear Space</h3>
-          <div class="guideline-content">
-            <p>Maintain a minimum clear space of <strong>25% of the logo width</strong> on all sides. This ensures the logo has proper breathing room and remains visually distinct.</p>
-          </div>
-        </div>
-        
-        <div class="guideline-card">
           <div class="guideline-icon">✅</div>
           <h3>Best Practices</h3>
           <div class="guideline-content">
@@ -586,29 +551,6 @@
   .guideline-content strong {
     color: var(--text-primary);
     font-weight: 600;
-  }
-  
-  .size-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  .size-item:last-child {
-    border-bottom: none;
-  }
-  
-  .size-item .label {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-  }
-  
-  .size-item .value {
-    color: var(--um-turquoise);
-    font-weight: 600;
-    font-size: 0.9rem;
   }
   
   .checklist {
